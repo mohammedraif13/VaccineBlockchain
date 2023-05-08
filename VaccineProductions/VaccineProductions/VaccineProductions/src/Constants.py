@@ -1,0 +1,15 @@
+serverName = "RAIF\SQLEXPRESS"
+databaseName = "VaccineProductionsV1"
+connString = "Driver={SQL Server};Server="+serverName+";Integrated_Security=true;Database="+databaseName
+contract_address = "0xA0B793c489987B79b33BD5441db84aEd4D921d8A"
+inspection_contract_address = "0x36418338FDe78FB77CC48092758562eBC0eC822b"
+inspection_in_charge_contract = '0x7980f67c5b6ADf739FFB9715E9571d754FfD9734'
+inspection_reviewer_contract = '0x8AcB36e2B00185af2A27A49E98d3b3eDc3ce3ecE'
+packing_contract_address = "0x706EA71ab6924402083d9CF9824C66475da44Fe3"
+packing_in_charge_contract = '0xcB3096145896e54d1b7967982c65C64984F2dDd1'
+packing_reviewer_contract = '0xf01252Ca640f5bb9910376a4638D167741D8088b'
+production_contract_address = "0x9C2372facE85231241Af30f6B8dF78b2fF91396d"
+production_in_charge_contract="0xB1acdBC9742DB4978E94135e8A22483c2FD9f9C2"
+production_reviewer_contract="0x28080CE446495F897E03b4229010605c5Ff2e602"
+role_contract_address = "0x9Ae8dEeEE074ff36F52d4697838d565467644C1b"
+users_contract_address = "0x68dF31785D3e6BaD604D7Ed0a6C6D0D725B804F9"

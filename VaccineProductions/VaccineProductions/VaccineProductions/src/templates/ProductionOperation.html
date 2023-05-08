@@ -1,0 +1,125 @@
+
+    {% extends "Home.html" %}
+
+{% block content %}
+    <h2 class="heading">{{operation}}  Production</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessProductionOperation" enctype="multipart/form-data">
+               
+      
+         <input type="hidden" name="operation" value="{{ operation }}"/>
+         <input type="hidden" name="productionID" value="{{ row.productionID }}"/>
+
+        
+
+                                            <div class="form-group row">
+                                    <label for="companyName" class="col-sm-3 col-form-label">Companyname </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="companyName" id="companyName"  value="{{ row.companyName }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="vaccineName" class="col-sm-3 col-form-label">Vaccinename </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="vaccineName" id="vaccineName"  value="{{ row.vaccineName }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="productionBatchNo" class="col-sm-3 col-form-label">Productionbatchno </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="productionBatchNo" id="productionBatchNo"  value="{{ row.productionBatchNo }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="productionDateTime" class="col-sm-3 col-form-label">Productiondatetime  </label>
+                                    <div class="col-sm-9">
+                                        <input type="datetime-local" class="form-control" name="productionDateTime" id="productionDateTime"  value="{{ row.productionDateTime }}" required {{ 'readonly' if operation == 'Delete' }} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="rawMaterials" class="col-sm-3 col-form-label">Rawmaterials </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="rawMaterials" id="rawMaterials"  value="{{ row.rawMaterials }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="auxiliaryMaterials" class="col-sm-3 col-form-label">Auxiliarymaterials </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="auxiliaryMaterials" id="auxiliaryMaterials"  value="{{ row.auxiliaryMaterials }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="productionEquipmentParameters" class="col-sm-3 col-form-label">Productionequipmentparameters </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="productionEquipmentParameters" id="productionEquipmentParameters"  value="{{ row.productionEquipmentParameters }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="abnormalRecord" class="col-sm-3 col-form-label">Abnormalrecord </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="abnormalRecord" id="abnormalRecord"  value="{{ row.abnormalRecord }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="investigationReport" class="col-sm-3 col-form-label">Investigationreport </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="investigationReport" id="investigationReport"  value="{{ row.investigationReport }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="expiryDateTime" class="col-sm-3 col-form-label">Expirydatetime  </label>
+                                    <div class="col-sm-9">
+                                        <input type="datetime-local" class="form-control" name="expiryDateTime" id="expiryDateTime"  value="{{ row.expiryDateTime }}" required {{ 'readonly' if operation == 'Delete' }} />
+                                    </div>
+                                </div>
+                                            
+                    <div class="form-group row">
+            <label for="actualWeight" class="col-sm-3 col-form-label">Actualweight </label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" name="actualWeight" id="actualWeight"  value="{{ row.actualWeight }}" required {{'readonly' if operation == 'Delete'}} />
+            </div>
+        </div>
+                    
+            <div class="form-group row">
+                <label for="productionInchargeID" class="col-sm-3 col-form-label">Productioninchargeid </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="productionInchargeID" name="productionInchargeID" {{'disabled' if operation == 'Delete'}}>
+                        {% for dd_row in productionInCharge_list %}
+                            <option value="{{dd_row.productionInChargeID}}">{{dd_row.productionInChargeName}}</option>
+                
+                        {% endfor %}
+                    </select>                          
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="productionReviewerID" class="col-sm-3 col-form-label">Productionreviewerid </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="productionReviewerID" name="productionReviewerID" {{'disabled' if operation == 'Delete'}}>
+                        {% for dd_row in productionReviewer_list %}
+                            <option value="{{dd_row.productionReviewerID}}">{{dd_row.productionReviewerName}}</option>
+                
+                        {% endfor %}
+                    </select>                          
+                </div>
+            </div>
+            
+    
+		
+        <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+                <a href="/ProductionListing" class="btn btn-outline-primary btn-sm ">Cancel</a>
+        </div>
+
+    </form>
+    
+{% endblock %}
+    

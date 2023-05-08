@@ -1,0 +1,111 @@
+
+    {% extends "Home.html" %}
+
+{% block content %}
+    <h2 class="heading">{{operation}}  Inspection</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessInspectionOperation" enctype="multipart/form-data">
+               
+      
+         <input type="hidden" name="operation" value="{{ operation }}"/>
+         <input type="hidden" name="inspectionID" value="{{ row.inspectionID }}"/>
+
+        
+
+                                            <div class="form-group row">
+                                    <label for="productionBatchNo" class="col-sm-3 col-form-label">Productionbatchno </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="productionBatchNo" id="productionBatchNo"  value="{{ row.productionBatchNo }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="dosageForm" class="col-sm-3 col-form-label">Dosageform </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="dosageForm" id="dosageForm"  value="{{ row.dosageForm }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inspectionDateTime" class="col-sm-3 col-form-label">Inspectiondatetime  </label>
+                                    <div class="col-sm-9">
+                                        <input type="datetime-local" class="form-control" name="inspectionDateTime" id="inspectionDateTime"  value="{{ row.inspectionDateTime }}" required {{ 'readonly' if operation == 'Delete' }} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="specification" class="col-sm-3 col-form-label">Specification </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="specification" id="specification"  value="{{ row.specification }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inspectionStandards" class="col-sm-3 col-form-label">Inspectionstandards </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inspectionStandards" id="inspectionStandards"  value="{{ row.inspectionStandards }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inspectionEquipments" class="col-sm-3 col-form-label">Inspectionequipments </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inspectionEquipments" id="inspectionEquipments"  value="{{ row.inspectionEquipments }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inspectionObservations" class="col-sm-3 col-form-label">Inspectionobservations </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inspectionObservations" id="inspectionObservations"  value="{{ row.inspectionObservations }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inspectionCalculations" class="col-sm-3 col-form-label">Inspectioncalculations </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inspectionCalculations" id="inspectionCalculations"  value="{{ row.inspectionCalculations }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inspectionResults" class="col-sm-3 col-form-label">Inspectionresults </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inspectionResults" id="inspectionResults"  value="{{ row.inspectionResults }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+            <div class="form-group row">
+                <label for="inspectionInChargeID" class="col-sm-3 col-form-label">Inspectioninchargeid </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="inspectionInChargeID" name="inspectionInChargeID" {{'disabled' if operation == 'Delete'}}>
+                        {% for dd_row in inspectionInCharge_list %}
+                            <option value="{{dd_row.inspectionInChargeID}}">{{dd_row.inspectionInChargeName}}</option>
+                
+                        {% endfor %}
+                    </select>                          
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="inspectionReviewerID" class="col-sm-3 col-form-label">Inspectionreviewerid </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="inspectionReviewerID" name="inspectionReviewerID" {{'disabled' if operation == 'Delete'}}>
+                        {% for dd_row in inspectionReviewer_list %}
+                            <option value="{{dd_row.inspectionReviewerID}}">{{dd_row.inspectionReviewerName}}</option>
+                
+                        {% endfor %}
+                    </select>                          
+                </div>
+            </div>
+            
+    
+		
+        <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+                <a href="/InspectionListing" class="btn btn-outline-primary btn-sm ">Cancel</a>
+        </div>
+
+    </form>
+    
+{% endblock %}
+    

@@ -1,0 +1,122 @@
+
+    {% extends "Home.html" %}
+
+{% block content %}
+    <h2 class="heading">{{operation}}  Inoculation</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessInoculationOperation" enctype="multipart/form-data">
+               
+      
+         <input type="hidden" name="operation" value="{{ operation }}"/>
+         <input type="hidden" name="inoculationID" value="{{ row.inoculationID }}"/>
+
+        
+
+                                            <div class="form-group row">
+                                    <label for="productionBatchNo" class="col-sm-3 col-form-label">Productionbatchno </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="productionBatchNo" id="productionBatchNo"  value="{{ row.productionBatchNo }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="vaccineRecipientName" class="col-sm-3 col-form-label">Vaccinerecipientname </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="vaccineRecipientName" id="vaccineRecipientName"  value="{{ row.vaccineRecipientName }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inoculationDateTime" class="col-sm-3 col-form-label">Inoculationdatetime  </label>
+                                    <div class="col-sm-9">
+                                        <input type="datetime-local" class="form-control" name="inoculationDateTime" id="inoculationDateTime"  value="{{ row.inoculationDateTime }}" required {{ 'readonly' if operation == 'Delete' }} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="vaccineRecipientAadharNo" class="col-sm-3 col-form-label">Vaccinerecipientaadharno </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="vaccineRecipientAadharNo" id="vaccineRecipientAadharNo"  value="{{ row.vaccineRecipientAadharNo }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="vaccineRecipientAddress" class="col-sm-3 col-form-label">Vaccinerecipientaddress </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="vaccineRecipientAddress" id="vaccineRecipientAddress"  value="{{ row.vaccineRecipientAddress }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="vaccineRecipientCity" class="col-sm-3 col-form-label">Vaccinerecipientcity </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="vaccineRecipientCity" id="vaccineRecipientCity"  value="{{ row.vaccineRecipientCity }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="vaccineRecipientState" class="col-sm-3 col-form-label">Vaccinerecipientstate </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="vaccineRecipientState" id="vaccineRecipientState"  value="{{ row.vaccineRecipientState }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="vaccineRecipientPincode" class="col-sm-3 col-form-label">Vaccinerecipientpincode </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="vaccineRecipientPincode" id="vaccineRecipientPincode"  value="{{ row.vaccineRecipientPincode }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="vaccineRecipientCountry" class="col-sm-3 col-form-label">Vaccinerecipientcountry </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="vaccineRecipientCountry" id="vaccineRecipientCountry"  value="{{ row.vaccineRecipientCountry }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                                <div class="form-group row">
+                                        <label for="vaccineRecipientDob" class="col-sm-3 col-form-label">Vaccinerecipientdob  </label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" name="vaccineRecipientDob" id="vaccineRecipientDob"  value="{{ row.vaccineRecipientDob }}" required {{ 'readonly' if operation == 'Delete' }} />
+                                        </div>
+                                    </div>
+                                                
+                                            <div class="form-group row">
+                                    <label for="inoculationDose" class="col-sm-3 col-form-label">Inoculationdose </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inoculationDose" id="inoculationDose"  value="{{ row.inoculationDose }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inoculationDepartment" class="col-sm-3 col-form-label">Inoculationdepartment </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inoculationDepartment" id="inoculationDepartment"  value="{{ row.inoculationDepartment }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inoculationDoctorName" class="col-sm-3 col-form-label">Inoculationdoctorname </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inoculationDoctorName" id="inoculationDoctorName"  value="{{ row.inoculationDoctorName }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inoculationDoctorNumber" class="col-sm-3 col-form-label">Inoculationdoctornumber </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inoculationDoctorNumber" id="inoculationDoctorNumber"  value="{{ row.inoculationDoctorNumber }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+    
+		
+        <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+                <a href="/InoculationListing" class="btn btn-outline-primary btn-sm ">Cancel</a>
+        </div>
+
+    </form>
+    
+{% endblock %}
+    

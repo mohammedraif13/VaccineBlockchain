@@ -1,0 +1,47 @@
+
+    
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2 class="heading"> Packing Reviewer Listing</h2>
+    
+<div class="text-center m-2"><a href="/PackingReviewerOperation?operation=Create" class="btn btn-outline-primary btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Packing Reviewer ID</th>
+<th scope="col">Packing Reviewer Name</th>
+
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+        {% if records | length == 0 %}
+            <tr>
+                <td colspan="3">
+                    <div class="alert alert-info" style="display:block" >
+                        <div class="text-center"> <b>No&nbsp;</b><span>Packing Reviewer Found</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+    {% for row in records %}
+        <tr>
+            <td>{{ row.packingReviewerID }}</td>
+<td>{{ row.packingReviewerName }}</td>
+
+        <td>
+            <a href="/PackingReviewerOperation?operation=Edit&unique_id={{ row.packingReviewerID }}" class="btn btn-outline-warning btn-sm ">Edit</a>
+            <a href="/PackingReviewerOperation?operation=Delete&unique_id={{ row.packingReviewerID }}" class="btn btn-outline-warning btn-sm ">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+<div class="text-center m-2"><a href="/PackingReviewerOperation?operation=Create" class="btn btn-outline-primary btn-sm ">Create</a></div>
+{% endblock %}
+    
+    
+    

@@ -1,0 +1,47 @@
+
+    
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2 class="heading"> Packing Listing</h2>
+    
+<div class="text-center m-2"><a href="/PackingOperation?operation=Create" class="btn btn-outline-primary btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Packing Batch No</th>
+<th scope="col">Packing Form</th>
+
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+        {% if records | length == 0 %}
+            <tr>
+                <td colspan="3">
+                    <div class="alert alert-info" style="display:block" >
+                        <div class="text-center"> <b>No&nbsp;</b><span>Packing Found</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+    {% for row in records %}
+        <tr>
+            <td>{{ row.packingBatchNo }}</td>
+<td>{{ row.packingForm }}</td>
+
+        <td>
+            <a href="/PackingOperation?operation=Edit&unique_id={{ row.packingID }}" class="btn btn-outline-warning btn-sm ">Edit</a>
+            <a href="/PackingOperation?operation=Delete&unique_id={{ row.packingID }}" class="btn btn-outline-warning btn-sm ">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+<div class="text-center m-2"><a href="/PackingOperation?operation=Create" class="btn btn-outline-primary btn-sm ">Create</a></div>
+{% endblock %}
+    
+    
+    

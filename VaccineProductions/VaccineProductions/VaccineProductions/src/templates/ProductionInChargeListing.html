@@ -1,0 +1,47 @@
+
+    
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2 class="heading"> Production In Charge Listing</h2>
+    
+<div class="text-center m-2"><a href="/ProductionInChargeOperation?operation=Create" class="btn btn-outline-primary btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Production In Charge ID</th>
+<th scope="col">Production In Charge Name</th>
+
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+        {% if records | length == 0 %}
+            <tr>
+                <td colspan="3">
+                    <div class="alert alert-info" style="display:block" >
+                        <div class="text-center"> <b>No&nbsp;</b><span>Production In Charge Found</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+    {% for row in records %}
+        <tr>
+            <td>{{ row.productionInChargeID }}</td>
+<td>{{ row.productionInChargeName }}</td>
+
+        <td>
+            <a href="/ProductionInChargeOperation?operation=Edit&unique_id={{ row.productionInChargeID }}" class="btn btn-outline-warning btn-sm ">Edit</a>
+            <a href="/ProductionInChargeOperation?operation=Delete&unique_id={{ row.productionInChargeID }}" class="btn btn-outline-warning btn-sm ">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+<div class="text-center m-2"><a href="/ProductionInChargeOperation?operation=Create" class="btn btn-outline-primary btn-sm ">Create</a></div>
+{% endblock %}
+    
+    
+    

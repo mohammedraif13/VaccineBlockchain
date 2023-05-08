@@ -1,0 +1,118 @@
+
+    {% extends "Home.html" %}
+
+{% block content %}
+    <h2 class="heading">{{operation}}  Packing</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessPackingOperation" enctype="multipart/form-data">
+               
+      
+         <input type="hidden" name="operation" value="{{ operation }}"/>
+         <input type="hidden" name="packingID" value="{{ row.packingID }}"/>
+
+        
+
+                                            <div class="form-group row">
+                                    <label for="productionBatchNo" class="col-sm-3 col-form-label">Productionbatchno </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="productionBatchNo" id="productionBatchNo"  value="{{ row.productionBatchNo }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="packingBatchNo" class="col-sm-3 col-form-label">Packingbatchno </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="packingBatchNo" id="packingBatchNo"  value="{{ row.packingBatchNo }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="packingDateTime" class="col-sm-3 col-form-label">Packingdatetime  </label>
+                                    <div class="col-sm-9">
+                                        <input type="datetime-local" class="form-control" name="packingDateTime" id="packingDateTime"  value="{{ row.packingDateTime }}" required {{ 'readonly' if operation == 'Delete' }} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="packingForm" class="col-sm-3 col-form-label">Packingform </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="packingForm" id="packingForm"  value="{{ row.packingForm }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="packingMaterials" class="col-sm-3 col-form-label">Packingmaterials </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="packingMaterials" id="packingMaterials"  value="{{ row.packingMaterials }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="packingEquipment" class="col-sm-3 col-form-label">Packingequipment </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="packingEquipment" id="packingEquipment"  value="{{ row.packingEquipment }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="abnormalRecord" class="col-sm-3 col-form-label">Abnormalrecord </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="abnormalRecord" id="abnormalRecord"  value="{{ row.abnormalRecord }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="inspectionReport" class="col-sm-3 col-form-label">Inspectionreport </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="inspectionReport" id="inspectionReport"  value="{{ row.inspectionReport }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                                            <div class="form-group row">
+                                    <label for="investigationReport" class="col-sm-3 col-form-label">Investigationreport </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="investigationReport" id="investigationReport"  value="{{ row.investigationReport }}" required {{'readonly' if operation == 'Delete'}} />
+                                    </div>
+                                </div>
+                                            
+                    <div class="form-group row">
+            <label for="actualWeight" class="col-sm-3 col-form-label">Actualweight </label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" name="actualWeight" id="actualWeight"  value="{{ row.actualWeight }}" required {{'readonly' if operation == 'Delete'}} />
+            </div>
+        </div>
+                    
+            <div class="form-group row">
+                <label for="packingInchargeID" class="col-sm-3 col-form-label">Packinginchargeid </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="packingInchargeID" name="packingInchargeID" {{'disabled' if operation == 'Delete'}}>
+                        {% for dd_row in packingInCharge_list %}
+                            <option value="{{dd_row.packingInChargeID}}">{{dd_row.packingInChargeName}}</option>
+                
+                        {% endfor %}
+                    </select>                          
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="packingReviewerID" class="col-sm-3 col-form-label">Packingreviewerid </label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="packingReviewerID" name="packingReviewerID" {{'disabled' if operation == 'Delete'}}>
+                        {% for dd_row in packingReviewer_list %}
+                            <option value="{{dd_row.packingReviewerID}}">{{dd_row.packingReviewerName}}</option>
+                
+                        {% endfor %}
+                    </select>                          
+                </div>
+            </div>
+            
+    
+		
+        <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+                <a href="/PackingListing" class="btn btn-outline-primary btn-sm ">Cancel</a>
+        </div>
+
+    </form>
+    
+{% endblock %}
+    
